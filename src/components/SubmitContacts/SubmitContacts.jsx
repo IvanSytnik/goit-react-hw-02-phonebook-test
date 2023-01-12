@@ -3,7 +3,10 @@ import css from './SubmitContacts.module.css'
 import PropTypes from 'prop-types';
 
 class SubmitContacts extends Component {
-    
+  static propTypes = {
+    contactsDelete: PropTypes.func
+  };
+
     state = {
       
       name: '',
@@ -30,7 +33,7 @@ class SubmitContacts extends Component {
       return (
       
       <form onSubmit={this.handleSubmit}>
-         <input
+     <label htmlFor="">Name:<input
       type="text"
       name="name"
       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -38,8 +41,10 @@ class SubmitContacts extends Component {
       required
       value={this.state.name}
       onChange={this.handleChange}
-    />
-    <input
+    /></label>
+    <label htmlFor="">
+      Tel:
+      <input
     type="tel"
     name="number"
     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -47,7 +52,7 @@ class SubmitContacts extends Component {
     required
     value={this.state.number}
     onChange={this.handleChange}
-  />
+  /></label>
     <button type="submit">Add contact</button>
       </form>
      
@@ -56,4 +61,6 @@ class SubmitContacts extends Component {
       )
     }
   }
+
+ 
   export default SubmitContacts;

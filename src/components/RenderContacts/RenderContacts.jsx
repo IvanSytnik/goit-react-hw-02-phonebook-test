@@ -18,4 +18,9 @@ const RenderContacts =({items, contactsDelete}) => {
    </div> 
    )}
 
+   RenderContacts.propTypes = {
+    items: PropTypes.array.isRequired,
+    contactsDelete: PropTypes.func.isRequired
+   }
+
    export default RenderContacts;
